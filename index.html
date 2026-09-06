@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>残業代計算ツール | 割増賃金をまとめて概算</title>
+<meta name="description" content="月給と残業時間を入れるだけで、時間外労働（25%・60時間超は50%）・深夜労働（25%加算）・休日労働（35%）の割増賃金をまとめて計算。無料・登録不要の残業代シミュレーターです。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webtools-labs.com/zangyodai-keisan/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKK5TXCQEK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NKK5TXCQEK');
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E%EF%BF%A5%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="webtools-labs">
+<meta property="og:title" content="残業代計算ツール | 割増賃金をまとめて概算">
+<meta property="og:description" content="月給と残業時間から、時間外・深夜・休日労働の割増賃金をまとめて計算できます。">
+<meta property="og:url" content="https://webtools-labs.com/zangyodai-keisan/">
+<meta property="og:image" content="https://webtools-labs.com/zangyodai-keisan/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="残業代計算ツール">
+<meta name="twitter:description" content="時間外・深夜・休日労働の割増賃金を概算できる無料ツール。">
+<meta name="twitter:image" content="https://webtools-labs.com/zangyodai-keisan/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "残業代計算ツール",
+  "url": "https://webtools-labs.com/zangyodai-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "description": "月給・所定労働時間・残業時間から、時間外労働・深夜労働・休日労働の割増賃金をまとめて計算できる無料ツール。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "残業代の割増率はどう決まりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "労働基準法では、法定労働時間（1日8時間・週40時間）を超える時間外労働は25%以上、法定休日の労働は35%以上、22時〜5時の深夜労働は25%以上の割増賃金を支払うことが義務付けられています。時間外労働と深夜労働が重なる場合は、割増率が合算されます（25%+25%=50%）。" }
+    },
+    {
+      "@type": "Question",
+      "name": "月60時間を超える残業の割増率はいつから引き上げられましたか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "月60時間を超える時間外労働の割増率50%は、以前は大企業のみに義務付けられていましたが、2023年4月から中小企業にも適用が拡大され、企業規模を問わず一律50%以上となりました。" }
+    },
+    {
+      "@type": "Question",
+      "name": "固定残業代（みなし残業代）がある場合はどうなりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "固定残業代は「あらかじめ一定時間分の残業代を含めて支給する」制度です。実際の残業時間が、固定残業代に含まれるみなし時間を超えた場合、その超過分については別途追加で残業代を支払う義務があります。このツールで計算した金額と、固定残業代に含まれる時間分を比較して、超過があるか確認してみてください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "基礎賃金（時給換算額）はどう計算されていますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "このツールでは「月給 ÷ 月平均所定労働時間」で時給換算した金額を基礎賃金として計算しています。実際の基礎賃金の計算では、家族手当・通勤手当・住宅手当などの一部の手当を除外するなど、より詳細なルールがあるため、正確な金額は給与明細や勤務先の担当部署でご確認ください。" }
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --surface-2: #f7f7f7;
+  --ink: #1a1a1a;
+  --muted: #767676;
+  --line: #e3e3e3;
+  --accent: #0f766e;
+  --best-bg: #f0f8f6;
+  --warn-bg: #fff7ed;
+  --warn-ink: #9a5b00;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+header.masthead { margin-bottom: 1.5rem; }
+h1 {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4.5vw, 1.7rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.01em;
+}
+p.lede { color: var(--muted); margin: 0; max-width: 60ch; font-size: 0.95rem; }
+.updated-note { display: block; margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+.notice-box {
+  background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px;
+  padding: 0.9rem 1.1rem; font-size: 0.85rem; margin-bottom: 2rem;
+}
+
+section { margin-bottom: 2.5rem; }
+h2 { font-size: 1.05rem; font-weight: 700; margin: 0 0 1rem; }
+
+.field-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+.field { flex: 1; min-width: 160px; }
+.field label { display: block; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.35rem; }
+.field input[type="number"] {
+  width: 100%; font-variant-numeric: tabular-nums; font-size: 1.05rem; font-family: inherit;
+  padding: 0.55rem 0.7rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--ink);
+}
+.field input:focus { outline: none; border-color: var(--accent); }
+.field-hint { font-size: 0.76rem; color: var(--muted); margin-top: 0.3rem; }
+
+.summary-cards { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.summary-card {
+  flex: 1; min-width: 180px; background: var(--best-bg); border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.summary-card .label { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+.summary-card .value { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.summary-card .sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+table.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.compare th, table.compare td {
+  padding: 0.55rem 0.5rem; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.compare th:first-child, table.compare td:first-child { text-align: left; }
+table.compare thead th { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+table.compare td.num { font-variant-numeric: tabular-nums; }
+tr.total td { font-weight: 700; }
+tr.total { background: var(--best-bg); }
+
+.ref-table { overflow-x: auto; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
+.ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
+
+.disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
+
+.share-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.share-btn {
+  display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 999px;
+  color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-x { background: #000; }
+.share-line { background: #06c755; }
+.share-fb { background: #1877f2; }
+.share-hatena { background: #00a4de; }
+
+.ad-slot { margin: 2.5rem 0; text-align: center; min-height: 100px; }
+
+.contact-box textarea {
+  width: 100%; min-height: 6rem; font-family: inherit; font-size: 0.92rem;
+  padding: 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  resize: vertical; margin-bottom: 0.6rem;
+}
+.contact-box input[type="email"] {
+  width: 100%; font-family: inherit; font-size: 0.92rem;
+  padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.contact-box textarea:focus, .contact-box input:focus { outline: none; border-color: var(--accent); }
+.contact-box button {
+  font-family: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.4rem;
+  border: none; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer;
+}
+.contact-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+.contact-status { font-size: 0.85rem; margin-top: 0.6rem; }
+.contact-status.ok { color: var(--accent); }
+.contact-status.err { color: #b91c1c; }
+
+footer.site-footer {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: 0.78rem; color: var(--muted);
+}
+footer.site-footer p { margin: 0 0 0.5rem; }
+footer.site-footer a { color: var(--accent); }
+
+.faq-item { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer; font-weight: 700; font-size: 0.92rem; list-style: none;
+  position: relative; padding-right: 1.6rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 0; top: 0; color: var(--accent); font-weight: 700; font-size: 1.1rem;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin: 0.7rem 0 0; color: var(--muted); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <h1>残業代計算ツール</h1>
+    <p class="lede">月給と残業時間を入れるだけで、時間外・深夜・休日労働の割増賃金をまとめて計算します。</p>
+    <span class="updated-note">割増率・制度 最終確認日: 2026年9月6日</span>
+  </header>
+
+  <div class="notice-box">
+    ⚠️ 2023年4月から、月60時間を超える時間外労働の割増率50%は、企業規模を問わず全ての会社に適用されています。「うちは中小企業だから25%のまま」という理解は古い可能性があります。
+  </div>
+
+  <section>
+    <h2>残業代を計算</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="monthlyPay">月給（額面・円）</label>
+        <input type="number" id="monthlyPay" min="0" step="10000" value="250000">
+        <div class="field-hint">基本給＋各種手当（住宅・通勤手当等の一部を除く）</div>
+      </div>
+      <div class="field">
+        <label for="standardHours">月の所定労働時間（時間）</label>
+        <input type="number" id="standardHours" min="1" step="1" value="160">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="overtimeHours">時間外労働時間（時間）</label>
+        <input type="number" id="overtimeHours" min="0" step="1" value="30">
+      </div>
+      <div class="field">
+        <label for="nightHours">うち深夜（22時〜5時）労働時間</label>
+        <input type="number" id="nightHours" min="0" step="1" value="0">
+      </div>
+      <div class="field">
+        <label for="holidayHours">休日労働時間（法定休日）</label>
+        <input type="number" id="holidayHours" min="0" step="1" value="0">
+      </div>
+    </div>
+
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div style="overflow-x:auto">
+      <table class="compare">
+        <thead>
+          <tr><th>項目</th><th class="num">時間</th><th class="num">金額</th></tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">基礎賃金は「月給 ÷ 月の所定労働時間」で簡易計算しています。実際の基礎賃金の算定では家族手当・通勤手当・住宅手当の一部を除外するなど詳細なルールがあり、休日労働時間は時間外労働の60時間カウントに含めずに計算しています。正確な金額は給与明細・勤務先の担当部署でご確認ください。</p>
+    <div class="share-row" id="shareRow">
+      <a class="share-btn share-x" id="shareX" href="#" target="_blank" rel="noopener">𝕏でシェア</a>
+      <a class="share-btn share-line" id="shareLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a class="share-btn share-fb" id="shareFb" href="#" target="_blank" rel="noopener">Facebookでシェア</a>
+      <a class="share-btn share-hatena" id="shareHatena" href="#" target="_blank" rel="noopener">はてブする</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>割増賃金率の早見表</h2>
+    <div class="ref-table">
+      <table>
+        <thead><tr><th>区分</th><th class="num">割増率</th></tr></thead>
+        <tbody>
+          <tr><td>時間外労働（月60時間まで）</td><td class="num">25%以上</td></tr>
+          <tr><td>時間外労働（月60時間を超える分）</td><td class="num">50%以上</td></tr>
+          <tr><td>深夜労働（22時〜5時）</td><td class="num">25%以上（加算）</td></tr>
+          <tr><td>休日労働（法定休日）</td><td class="num">35%以上</td></tr>
+          <tr><td>時間外＋深夜が重複</td><td class="num">50%以上</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">法定の最低割増率です。就業規則・労働協約でこれを上回る率が定められている場合はそちらが優先されます。</p>
+  </section>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2370765779014113"
+      data-ad-slot="3021985784"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <section>
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary>残業代の割増率はどう決まりますか？</summary>
+      <p>労働基準法では、法定労働時間（1日8時間・週40時間）を超える時間外労働は25%以上、法定休日の労働は35%以上、22時〜5時の深夜労働は25%以上の割増賃金を支払うことが義務付けられています。時間外労働と深夜労働が重なる場合は、割増率が合算されます（25%+25%=50%）。</p>
+    </details>
+    <details class="faq-item">
+      <summary>月60時間を超える残業の割増率はいつから引き上げられましたか？</summary>
+      <p>月60時間を超える時間外労働の割増率50%は、以前は大企業のみに義務付けられていましたが、2023年4月から中小企業にも適用が拡大され、企業規模を問わず一律50%以上となりました。</p>
+    </details>
+    <details class="faq-item">
+      <summary>固定残業代（みなし残業代）がある場合はどうなりますか？</summary>
+      <p>固定残業代は「あらかじめ一定時間分の残業代を含めて支給する」制度です。実際の残業時間が、固定残業代に含まれるみなし時間を超えた場合、その超過分については別途追加で残業代を支払う義務があります。このツールで計算した金額と、固定残業代に含まれる時間分を比較して、超過があるか確認してみてください。</p>
+    </details>
+    <details class="faq-item">
+      <summary>基礎賃金（時給換算額）はどう計算されていますか？</summary>
+      <p>このツールでは「月給 ÷ 月平均所定労働時間」で時給換算した金額を基礎賃金として計算しています。実際の基礎賃金の計算では、家族手当・通勤手当・住宅手当などの一部の手当を除外するなど、より詳細なルールがあるため、正確な金額は給与明細や勤務先の担当部署でご確認ください。</p>
+    </details>
+  </section>
+
+  <section class="contact-box">
+    <h2>ご意見・追加してほしい機能</h2>
+    <p class="lede" style="margin-bottom:0.9rem;">気づいたことや、あったら便利な機能があれば教えてください。</p>
+    <form id="contactForm">
+      <input type="email" id="contactEmail" placeholder="返信が必要な場合はメールアドレス（任意）">
+      <textarea id="contactMessage" placeholder="ご意見・ご要望をどうぞ" required></textarea>
+      <button type="submit" id="contactSubmit">送信する</button>
+      <p class="contact-status" id="contactStatus"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>本ツールの計算結果は一般的な前提にもとづく概算であり、正確性を保証するものではありません。実際の割増賃金は基礎賃金の算定方法・就業規則により異なる場合があります。正確な金額は給与明細・勤務先の担当部署でご確認ください。</p>
+    <p>あわせて使える：
+      <a href="https://webtools-labs.com/tedori-keisan/">手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/yukyu-hiyou-keisan/">有給休暇 付与日数計算ツール</a> ／
+      <a href="https://webtools-labs.com/fuyou-no-kabe-keisan/">扶養の壁チェッカー</a> ／
+      <a href="https://webtools-labs.com/sankyu-ikuji-teate-keisan/">産休・育休手当金シミュレーター</a>
+    </p>
+    <p>当サイトは広告を掲載する場合があります。</p>
+    <p><a href="https://webtools-labs.com/about/">運営者情報</a> ／ <a href="https://webtools-labs.com/privacy/">プライバシーポリシー</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function yen(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
+
+  function calc(monthlyPay, standardHours, overtimeHours, nightHours, holidayHours) {
+    var hourlyWage = monthlyPay / standardHours;
+    var overtime60 = Math.min(overtimeHours, 60);
+    var overtimeOver60 = Math.max(0, overtimeHours - 60);
+    var overtimePay = hourlyWage * 1.25 * overtime60 + hourlyWage * 1.5 * overtimeOver60;
+    var nightPay = hourlyWage * 0.25 * nightHours;
+    var holidayPay = hourlyWage * 1.35 * holidayHours;
+    var total = overtimePay + nightPay + holidayPay;
+
+    return {
+      hourlyWage: hourlyWage, overtime60: overtime60, overtimeOver60: overtimeOver60,
+      overtimePay: overtimePay, nightPay: nightPay, holidayPay: holidayPay, total: total
+    };
+  }
+
+  var monthlyPayInput = document.getElementById('monthlyPay');
+  var standardHoursInput = document.getElementById('standardHours');
+  var overtimeHoursInput = document.getElementById('overtimeHours');
+  var nightHoursInput = document.getElementById('nightHours');
+  var holidayHoursInput = document.getElementById('holidayHours');
+  var summaryCards = document.getElementById('summaryCards');
+  var resultBody = document.getElementById('resultBody');
+  var shareX = document.getElementById('shareX');
+  var shareLine = document.getElementById('shareLine');
+  var shareFb = document.getElementById('shareFb');
+  var shareHatena = document.getElementById('shareHatena');
+
+  function setShareLinks(text, url) {
+    shareX.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    shareLine.href = 'https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + url);
+    shareFb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text);
+    shareHatena.href = 'https://b.hatena.ne.jp/entry/panel/?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text);
+  }
+
+  function render() {
+    var monthlyPay = Math.max(0, Number(monthlyPayInput.value) || 0);
+    var standardHours = Math.max(1, Number(standardHoursInput.value) || 1);
+    var overtimeHours = Math.max(0, Number(overtimeHoursInput.value) || 0);
+    var nightHours = Math.max(0, Number(nightHoursInput.value) || 0);
+    var holidayHours = Math.max(0, Number(holidayHoursInput.value) || 0);
+    var r = calc(monthlyPay, standardHours, overtimeHours, nightHours, holidayHours);
+
+    summaryCards.innerHTML =
+      '<div class="summary-card"><div class="label">基礎賃金（時給換算）</div><div class="value">' + yen(r.hourlyWage) + '</div><div class="sub">月給 ÷ 所定労働時間</div></div>' +
+      '<div class="summary-card"><div class="label">割増賃金の合計</div><div class="value">' + yen(r.total) + '</div><div class="sub">時間外＋深夜＋休日</div></div>';
+
+    resultBody.innerHTML =
+      '<tr><td>時間外労働（25%、60時間まで）</td><td class="num">' + r.overtime60 + '時間</td><td class="num">' + yen(r.hourlyWage * 1.25 * r.overtime60) + '</td></tr>' +
+      '<tr><td>時間外労働（50%、60時間超）</td><td class="num">' + r.overtimeOver60 + '時間</td><td class="num">' + yen(r.hourlyWage * 1.5 * r.overtimeOver60) + '</td></tr>' +
+      '<tr><td>深夜労働の加算（25%）</td><td class="num">' + nightHours + '時間</td><td class="num">' + yen(r.nightPay) + '</td></tr>' +
+      '<tr><td>休日労働（35%）</td><td class="num">' + holidayHours + '時間</td><td class="num">' + yen(r.holidayPay) + '</td></tr>' +
+      '<tr class="total"><td>割増賃金の合計</td><td class="num"></td><td class="num">' + yen(r.total) + '</td></tr>';
+
+    var shareText = '月給' + monthlyPay.toLocaleString('ja-JP') + '円・残業' + overtimeHours + '時間で計算したら\n' +
+      '割増賃金の合計は ' + yen(r.total) + ' でした\n\n' +
+      '残業代計算ツール';
+    setShareLinks(shareText, 'https://webtools-labs.com/zangyodai-keisan/');
+  }
+
+  monthlyPayInput.addEventListener('input', render);
+  standardHoursInput.addEventListener('input', render);
+  overtimeHoursInput.addEventListener('input', render);
+  nightHoursInput.addEventListener('input', render);
+  holidayHoursInput.addEventListener('input', render);
+
+  render();
+
+  var WEB3FORMS_ACCESS_KEY = '4551c9fd-4327-4bd4-97e0-8b93d85fd077';
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  var contactSubmit = document.getElementById('contactSubmit');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    contactSubmit.disabled = true;
+    contactStatus.textContent = '送信中...';
+    contactStatus.className = 'contact-status';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: '残業代計算ツールへのお問い合わせ',
+        email: document.getElementById('contactEmail').value || 'noreply@example.com',
+        message: document.getElementById('contactMessage').value
+      })
+    }).then(function (res) { return res.json(); }).then(function (data) {
+      contactSubmit.disabled = false;
+      if (data.success) {
+        contactStatus.textContent = '送信しました。ありがとうございます！';
+        contactStatus.className = 'contact-status ok';
+        contactForm.reset();
+      } else {
+        contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        contactStatus.className = 'contact-status err';
+      }
+    }).catch(function () {
+      contactSubmit.disabled = false;
+      contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      contactStatus.className = 'contact-status err';
+    });
+  });
+})();
+</script>
+</body>
+</html>

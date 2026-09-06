@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webtools-labs.com/zangyodai-keisan/sitemap.xml
