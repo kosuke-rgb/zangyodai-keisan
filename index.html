@@ -624,5 +624,14 @@ footer.site-footer a { color: var(--accent); }
   });
 })();
 </script>
+<script>
+// A8広告のクリックをGA4に記録（どのページ・どの広告がクリックされたか）
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[href*="px.a8.net"]') : null;
+  if (!a || typeof gtag !== 'function') return;
+  var m = a.href.match(/a8mat=([^&]+)/);
+  gtag('event', 'pr_click', { ad_id: m ? decodeURIComponent(m[1]) : '', ad_text: a.textContent.trim().slice(0, 80) });
+});
+</script>
 </body>
 </html>
