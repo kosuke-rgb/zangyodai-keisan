@@ -173,7 +173,7 @@ tr.total td { font-weight: 700; }
 tr.total { background: var(--best-bg); }
 
 .ref-table { overflow-x: auto; }
-.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
 .ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
 .ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 
@@ -254,6 +254,15 @@ footer.site-footer a { color: var(--accent); }
 .breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; }
 .breadcrumb a { color: var(--accent); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -346,11 +355,11 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>区分</th><th class="num">割増率</th></tr></thead>
         <tbody>
-          <tr><td>時間外労働（月60時間まで）</td><td class="num">25%以上</td></tr>
-          <tr><td>時間外労働（月60時間を超える分）</td><td class="num">50%以上</td></tr>
+          <tr><td>時間外労働（月60時間まで）</td><td class="num nw">25%以上</td></tr>
+          <tr><td>時間外労働（月60時間を超える分）</td><td class="num nw">50%以上</td></tr>
           <tr><td>深夜労働（22時〜5時）</td><td class="num">25%以上（加算）</td></tr>
-          <tr><td>休日労働（法定休日）</td><td class="num">35%以上</td></tr>
-          <tr><td>時間外＋深夜が重複</td><td class="num">50%以上</td></tr>
+          <tr><td>休日労働（法定休日）</td><td class="num nw">35%以上</td></tr>
+          <tr><td>時間外＋深夜が重複</td><td class="num nw">50%以上</td></tr>
         </tbody>
       </table>
     </div>
@@ -365,8 +374,8 @@ footer.site-footer a { color: var(--accent); }
         <thead><tr><th>項目</th><th class="num">値</th></tr></thead>
         <tbody>
           <tr><td>① 基礎賃金（月給25万円÷所定労働時間160時間）</td><td class="num">1,562.5円/時</td></tr>
-          <tr><td>② 時間外労働30時間分（①×1.25×30時間）</td><td class="num">58,594円</td></tr>
-          <tr class="total"><td>割増賃金の合計</td><td class="num">58,594円</td></tr>
+          <tr><td>② 時間外労働30時間分（①×1.25×30時間）</td><td class="num nw">58,594円</td></tr>
+          <tr class="total"><td>割増賃金の合計</td><td class="num nw">58,594円</td></tr>
         </tbody>
       </table>
     </div>
@@ -388,10 +397,10 @@ footer.site-footer a { color: var(--accent); }
       <table style="white-space:nowrap">
         <thead><tr><th>月給（基礎賃金）</th><th class="num">残業10時間</th><th class="num">20時間</th><th class="num">30時間</th><th class="num">45時間</th></tr></thead>
         <tbody>
-          <tr><td>20万円</td><td class="num">15,625円</td><td class="num">31,250円</td><td class="num">46,875円</td><td class="num">70,313円</td></tr>
-          <tr><td>25万円</td><td class="num">19,531円</td><td class="num">39,063円</td><td class="num">58,594円</td><td class="num">87,891円</td></tr>
-          <tr><td>30万円</td><td class="num">23,438円</td><td class="num">46,875円</td><td class="num">70,313円</td><td class="num">105,469円</td></tr>
-          <tr><td>35万円</td><td class="num">27,344円</td><td class="num">54,688円</td><td class="num">82,031円</td><td class="num">123,047円</td></tr>
+          <tr><td>20万円</td><td class="num nw">15,625円</td><td class="num nw">31,250円</td><td class="num nw">46,875円</td><td class="num nw">70,313円</td></tr>
+          <tr><td>25万円</td><td class="num nw">19,531円</td><td class="num nw">39,063円</td><td class="num nw">58,594円</td><td class="num nw">87,891円</td></tr>
+          <tr><td>30万円</td><td class="num nw">23,438円</td><td class="num nw">46,875円</td><td class="num nw">70,313円</td><td class="num nw">105,469円</td></tr>
+          <tr><td>35万円</td><td class="num nw">27,344円</td><td class="num nw">54,688円</td><td class="num nw">82,031円</td><td class="num nw">123,047円</td></tr>
         </tbody>
       </table>
     </div>
